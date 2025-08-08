@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>VITALS MVP Wireframe</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <style>
+            body {
+                background-image: url(bg.jpg);
+                background-position: right bottom;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+            .bg-opacity-90 {
+                --bs-bg-opacity: 0.90;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container bg-white bg-opacity-90 d-flex flex-column vh-100 shadow">
+            <header class="d-flex gap-3 align-items-center justify-content-center py-2">
+                <button class="btn btn-outline-dark rounded-0 border-0">Features</button>
+                <button class="btn btn-outline-dark rounded-0 border-0">Methodology</button>
+                <button class="btn btn-outline-dark rounded-0 border-0 me-5">Pricing</button>
+                <button class="btn btn-outline-dark rounded-0 border-0 ms-5">
+                    <i class="bi bi-person-circle"></i>
+                    Log in
+                </button>
+            </header>
+            <main class="d-flex flex-column align-items-center justify-content-center flex-grow-1">
+                <h1 class="text-center">Welcome to [VITALS]</h1>
+                <p class="lead text-center">Your business, our tagline.</p>
+                <div class="mt-4 d-flex gap-3">
+                    <select class="form-select border-dark" style="width: 2in;">
+                        <option>My industry is...</option>
+                        <option>Real Estate</option>
+                        <option>Construction</option>
+                    </select>
+                    <a  href="questionnaire" class="btn btn-outline-dark">Get Started</a>
+                </div>
+            </main>
+            <footer class="py-2 d-flex justify-content-center align-items-center gap-2">
+                <i class="bi bi-chevron-double-down" data-downindicator></i>
+                Additional landing page content (planned)
+                <i class="bi bi-chevron-double-down" data-downindicator></i>
+            </footer>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+        <script>
+            document.querySelectorAll(`[data-downindicator]`).forEach(indicator => {
+                // Toggle between chevron icons every 500 miliseconds
+                setInterval(() => {
+                    indicator.classList.toggle('bi-chevron-double-down');
+                    indicator.classList.toggle('bi-chevron-down');
+                }, 750);
+            });
+        </script>
+    </body>
+</html>

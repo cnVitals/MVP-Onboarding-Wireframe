@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>VITALS MVP Wireframe</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <style>
+            body {
+                background-image: url('../bg.jpg');
+                background-position: right bottom;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+            .bg-opacity-90 {
+                --bs-bg-opacity: 0.90;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid bg-white bg-opacity-90 d-flex flex-column vh-100 shadow" style="width: 90%;">
+            <header class="d-flex gap-3 align-items-center justify-content-center py-2">
+                <a href="//localhost/vitals" class="btn btn-outline-dark rounded-0 border-top-0 border-start-0 border-end-0 me-5">
+                    <i class="bi bi-house-fill"></i>
+                    [Vitals]
+                </a>
+                <button class="btn btn-outline-dark rounded-0 border-0 ms-5">Features</button>
+                <button class="btn btn-outline-dark rounded-0 border-0">Methodology</button>
+                <button class="btn btn-outline-dark rounded-0 border-0 me-5">Pricing</button>
+                <button class="btn btn-outline-dark rounded-0 border-0 ms-5">
+                    <i class="bi bi-person-circle"></i>
+                    Log in
+                </button>
+            </header>
+            <main class="d-flex flex-column align-items-center justify-content-center flex-grow-1">
+                <h1 id="fetching" class="text-center mb-3">Fetching Your Health Summary...</h1>
+                <p id="rating" class="d-none lead text-center border-bottom border-secondary px-5 pb-3 mb-4" style="font-weight:400;">Stable, with Areas for Strengthening</p>
+                <div id="loading" class="text-center">
+                    <div class="spinner-border" style="height: 5rem; width: 5rem;" role="status"><span class="visually-hidden">Loading...</span></div>
+                </div>
+                <div id="loaded" class="d-none row row-cols-2 w-100 align-items-center">
+                    <div class="col-4 offset-2 text-end pe-5">
+                        <p>Your business is showing strong vital signs, with a steady pulse in core operations and healthy circulation in customer engagement. The heart of your business—your team and culture—is beating with purpose, though...</p>
+                        <p class="mt-5">
+                            <b>Metabolic Efficiency:</b><br>
+                            Your operational metabolism is functioning, but not at peak efficiency. There's some buildup in the system—perhaps in the form of outdated processes or bottlenecks—that's slowing down your ability to...
+                        </p>
+                    </div>
+                    <div class="col-5 text-start ps-5 d-flex gap-1 align-items-center">
+                        <div style="font-size: 13rem;"><i class="bi bi-person-arms-up"></i></div>
+                        <div class="d-flex flex-column gap-4">
+                            <div class="ps-5 text-end d-flex gap-2 align-items-baseline" style="border-bottom: 1px #777 dotted;">
+                                <b>5.5</b>
+                                <span class="flex-grow-1" style="font-weight: 500;">Brain</span>
+                                <a class="text-dark text-end bi bi-box-arrow-up-right"></a>
+                            </div>
+                            <div class="ps-5 text-end d-flex gap-2 align-items-baseline" style="border-bottom: 1px #777 dotted;">
+                                <b>4.3</b>
+                                <span class="flex-grow-1" style="font-weight: 500;">Lungs</span>
+                                <a class="text-dark text-end bi bi-box-arrow-up-right"></a>
+                            </div>
+                            <div class="ps-5 text-end d-flex gap-2 align-items-baseline" style="border-bottom: 1px #777 dotted;">
+                                <b>2.9</b>
+                                <span class="flex-grow-1" style="font-weight: 500;">Heart</span>
+                                <a class="text-dark text-end bi bi-box-arrow-up-right"></a>
+                            </div>
+                            <div class="ps-5 text-end d-flex gap-2 align-items-baseline" style="border-bottom: 1px #777 dotted;">
+                                <b>7.1</b>
+                                <span class="flex-grow-1" style="font-weight: 500;">Inmune</span>
+                                <a class="text-dark text-end bi bi-box-arrow-up-right"></a>
+                            </div>
+                            <div class="ps-5 text-end d-flex gap-2 align-items-baseline" style="border-bottom: 1px #777 dotted;">
+                                <b>2.3</b>
+                                <span class="flex-grow-1" style="font-weight: 500;">Nervous</span>
+                                <a class="text-dark text-end bi bi-box-arrow-up-right"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="py-2 d-flex justify-content-center align-items-center gap-2">
+                &nbsp;
+            </footer>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // Simulate loading data
+                setTimeout(() => {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('loaded').classList.remove('d-none');
+                    document.getElementById('rating').classList.remove('d-none');
+                    document.getElementById('fetching').innerHTML = "Your Health Summary";
+                }, 500);
+            });
+        </script>
+    </body>
+</html>
