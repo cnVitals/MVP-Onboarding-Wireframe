@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import BusinessLogin from "./pages/BusinessLogin";
+import AdminLogin from "./pages/AdminLogin";
+import AdminPortal from "./pages/AdminPortal";
+import BusinessPortal from "./pages/BusinessPortal";
+import IndustrySelection from "./components/Onboarding/IndustrySelection";
+import Quiz from "./components/Onboarding/Quiz";
+import NextSteps from "./components/Onboarding/NextSteps";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/business-login" element={<BusinessLogin />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route
+          path="/admin-portal"
+          element={
+            <ProtectedRoute role="admin">
+              <AdminPortal />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/business-portal"
+          element={
+            <ProtectedRoute role="business">
+              <BusinessPortal />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/onboarding/industry-selection" element={<IndustrySelection />} />
+        <Route path="/onboarding/quiz" element={<Quiz />} />
+        <Route path="/onboarding/next-steps" element={<NextSteps />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
